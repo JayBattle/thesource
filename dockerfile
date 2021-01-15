@@ -22,13 +22,12 @@ RUN sh bootstrap-salt.sh
 RUN apt-get update
 RUN sed -i 's/#master: salt/master: $SaltMasterIP/g' /etc/salt/minion
 RUN cat /home/StartupScript.sh
-ARG VERSION=3.7.4
 RUN apt update && \
        apt install -y wget && \
        wget -O /tmp/nordrepo.deb https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb && \
        apt install -y /tmp/nordrepo.deb && \
        apt update && \
-       apt install -y nordvpn=$VERSION && \
+       apt install -y nordvpn=3.7.4 && \
        apt remove -y wget nordvpn-release
 RUN apt-get -y install rtorrent
 ENTRYPOINT ["/home/StartupScript.sh"]
