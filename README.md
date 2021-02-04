@@ -1,7 +1,12 @@
 # thesource
 A Docker Container Project for Secure Downloads. 
 
-Build: 
+Safebuild:
+cd thesource
+safebuild.sh thesource
+
+Normal Build: 
+Replace $SaltMasterIP in the dockerfile
 cd thesource
 sudo docker build -t thesource .
 
